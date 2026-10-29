@@ -23,6 +23,10 @@ We are presenting the project as a poster at GGC's 27th CREATES Conference on No
 
 ## How it works
 
+![Project HIVE architecture, with my parts in gold](images/architecture.png)
+
+The same flow as a diagram GitHub renders natively:
+
 ```mermaid
 flowchart LR
     A["Internet attackers"] --> B["Azure NSG<br/>decoy ports open<br/>management restricted<br/>outbound restricted"]
@@ -68,6 +72,8 @@ I owned the Azure side of the project and its security and cost controls, which 
 
 ![Storage account security settings](images/azure-storage-security.png)
 
+The full threat-to-control breakdown is in [docs/security-design.md](docs/security-design.md).
+
 ### Cost control
 
 | Service | Cost, Oct 1 to 15 |
@@ -92,6 +98,8 @@ The teardown plan has four steps: export the dataset, code and dashboards to Git
 ![Budget alert at 100% of the monthly budget](images/azure-budget-alert.png)
 
 ![Azure Advisor scores](images/azure-advisor.png)
+
+More detail, including the teardown commands, is in [docs/cost-report.md](docs/cost-report.md).
 
 ## The detection pipeline (team work)
 
@@ -258,7 +266,11 @@ Two replanning calls shaped the project: pulling the data pipeline forward so ou
 ```
 project-hive/
 ├── README.md
-└── images/    screenshots used in this README (attacker IPs and resource names redacted)
+├── .gitignore
+├── docs/
+│   ├── security-design.md    threats, controls and known gaps
+│   └── cost-report.md        spending, budget alert lesson, teardown plan
+└── images/                   diagram and screenshots (attacker IPs and resource names redacted)
 ```
 
 ## Responsible use
